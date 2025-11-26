@@ -280,7 +280,7 @@ export default function DataFetchingWithHeader() {
                   今回の被評価者を決定する
                 </h1>
                 <p className="text-sm text-muted-foreground">
-                  ここに文章が入ります。ここに文章が入ります。ここに文章が入ります。
+                  ここに文章が入ります。ここに文章が入ります。ここに文章が入り���す。
                 </p>
               </div>
               <Button size="lg" className="px-8">
@@ -436,9 +436,9 @@ export default function DataFetchingWithHeader() {
                     </TableBody>
                   </Table>
                 </div>
-              </TabsContent>
+                </TabsContent>
 
-              <TabsContent value="excluded" className="mt-4">
+                <TabsContent value="excluded" className="mt-0">
                 <div className="rounded-md border">
                   <Table>
                     <TableHeader>
