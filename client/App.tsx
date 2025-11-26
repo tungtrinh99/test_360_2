@@ -9,6 +9,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import PlaceholderPage from "./pages/PlaceholderPage";
+import EvaluatorSelection from "./pages/EvaluatorSelection";
 
 const queryClient = new QueryClient();
 
@@ -20,6 +21,7 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/evaluator-selection" element={<EvaluatorSelection />} />
           <Route path="/history" element={<PlaceholderPage title="History" />} />
           <Route path="/starred" element={<PlaceholderPage title="Starred" />} />
           <Route path="/settings" element={<PlaceholderPage title="Settings" />} />
