@@ -1,7 +1,7 @@
 import { AppLayout } from "@/components/AppLayout";
 import { Link } from "react-router-dom";
 import { Card, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { User, Table } from "lucide-react";
+import { User, Table, ListTodo } from "lucide-react";
 
 export default function Index() {
   return (
@@ -14,7 +14,7 @@ export default function Index() {
           </p>
         </div>
 
-        <div className="grid gap-4 sm:grid-cols-2">
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           <Link to="/evaluator-selection">
             <Card className="cursor-pointer transition-all hover:border-primary">
               <CardHeader>
@@ -38,6 +38,20 @@ export default function Index() {
                 </CardTitle>
                 <CardDescription>
                   今回の被評価者を決定する
+                </CardDescription>
+              </CardHeader>
+            </Card>
+          </Link>
+
+          <Link to="/evaluation-flow">
+            <Card className="cursor-pointer transition-all hover:border-primary">
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <ListTodo className="h-5 w-5" />
+                  Evaluation Flow
+                </CardTitle>
+                <CardDescription>
+                  360度評価進行フロー
                 </CardDescription>
               </CardHeader>
             </Card>
