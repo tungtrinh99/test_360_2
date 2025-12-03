@@ -39,8 +39,10 @@ export function DataFetchingTable({
     return parts.map((p) => p[0]).join("");
   };
 
-  const allSelected = employees.length > 0 && selectedEmployees.size === employees.length;
-  const someSelected = selectedEmployees.size > 0 && selectedEmployees.size < employees.length;
+  const allSelected =
+    employees.length > 0 && selectedEmployees.size === employees.length;
+  const someSelected =
+    selectedEmployees.size > 0 && selectedEmployees.size < employees.length;
 
   return (
     <div className="rounded-md border">
@@ -52,41 +54,55 @@ export function DataFetchingTable({
                 checked={allSelected}
                 onCheckedChange={onToggleAll}
                 aria-label="Select all"
-                className={someSelected ? "data-[state=checked]:bg-primary" : ""}
+                className={
+                  someSelected ? "data-[state=checked]:bg-primary" : ""
+                }
               />
             </TableHead>
             <TableHead className="px-4">
               <div className="flex items-center gap-2.5">
-                <span className="text-sm font-medium text-muted-foreground">評価対象者</span>
+                <span className="text-sm font-medium text-muted-foreground">
+                  評価対象者
+                </span>
                 <ArrowDownUp className="h-4 w-4 text-muted-foreground" />
               </div>
             </TableHead>
             <TableHead className="px-4 w-[110px]">
               <div className="flex items-center gap-2.5">
-                <span className="text-sm font-medium text-muted-foreground">前回評価</span>
+                <span className="text-sm font-medium text-muted-foreground">
+                  前回評価
+                </span>
               </div>
             </TableHead>
             <TableHead className="px-4">
               <div className="flex items-center gap-2.5">
-                <span className="text-sm font-medium text-muted-foreground">社員番号</span>
+                <span className="text-sm font-medium text-muted-foreground">
+                  社員番号
+                </span>
                 <ArrowDownUp className="h-4 w-4 text-muted-foreground" />
               </div>
             </TableHead>
             <TableHead className="px-4">
               <div className="flex items-center gap-2.5">
-                <span className="text-sm font-medium text-muted-foreground">部署</span>
+                <span className="text-sm font-medium text-muted-foreground">
+                  部署
+                </span>
                 <ArrowDownUp className="h-4 w-4 text-muted-foreground" />
               </div>
             </TableHead>
             <TableHead className="px-4">
               <div className="flex items-center gap-2.5">
-                <span className="text-sm font-medium text-muted-foreground">入社日</span>
+                <span className="text-sm font-medium text-muted-foreground">
+                  入社日
+                </span>
                 <ArrowDownUp className="h-4 w-4 text-muted-foreground" />
               </div>
             </TableHead>
             <TableHead className="px-4">
               <div className="flex items-center gap-2.5">
-                <span className="text-sm font-medium text-muted-foreground">雇用形態</span>
+                <span className="text-sm font-medium text-muted-foreground">
+                  雇用形態
+                </span>
                 <ArrowDownUp className="h-4 w-4 text-muted-foreground" />
               </div>
             </TableHead>
@@ -123,9 +139,7 @@ export function DataFetchingTable({
                   </div>
                 </TableCell>
                 <TableCell className="px-4">
-                  <Badge 
-                    className="bg-sky-100 text-sky-700 hover:bg-sky-100 border-0 rounded-full px-3 py-0.5 text-xs font-normal"
-                  >
+                  <Badge className="bg-sky-100 text-sky-700 hover:bg-sky-100 border-0 rounded-full px-3 py-0.5 text-xs font-normal">
                     {employee.previousEvaluation}
                   </Badge>
                 </TableCell>

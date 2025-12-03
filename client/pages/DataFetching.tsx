@@ -3,7 +3,10 @@ import { AppLayout } from "@/components/AppLayout";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { DataFetchingFilter } from "@/components/DataFetchingFilter";
-import { DataFetchingTable, type Employee } from "@/components/DataFetchingTable";
+import {
+  DataFetchingTable,
+  type Employee,
+} from "@/components/DataFetchingTable";
 
 const employeeNames = [
   "森 光",
@@ -27,7 +30,9 @@ const mockEmployees: Employee[] = Array.from({ length: 20 }, (_, i) => ({
 }));
 
 export default function DataFetching() {
-  const [selectedEmployees, setSelectedEmployees] = useState<Set<string>>(new Set());
+  const [selectedEmployees, setSelectedEmployees] = useState<Set<string>>(
+    new Set(),
+  );
   const [department, setDepartment] = useState("エンタメ事業部");
   const [memberName, setMemberName] = useState("");
   const [joinDate, setJoinDate] = useState("");
@@ -72,7 +77,11 @@ export default function DataFetching() {
 
         <div className="flex flex-col gap-4">
           <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
-            <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full lg:w-auto">
+            <Tabs
+              value={activeTab}
+              onValueChange={setActiveTab}
+              className="w-full lg:w-auto"
+            >
               <TabsList className="grid w-full lg:w-[400px] grid-cols-2 h-auto p-0 bg-transparent">
                 <TabsTrigger
                   value="target"
