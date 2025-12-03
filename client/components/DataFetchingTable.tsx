@@ -8,14 +8,17 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { Badge } from "@/components/ui/badge";
 import { ArrowDownUp } from "lucide-react";
 
 export interface Employee {
   id: string;
   name: string;
-  employmentType: string;
+  previousEvaluation: string;
+  employeeNumber: string;
   department: string;
   joinDate: string;
+  employmentType: string;
 }
 
 interface DataFetchingTableProps {
@@ -58,9 +61,14 @@ export function DataFetchingTable({
                 <ArrowDownUp className="h-4 w-4 text-muted-foreground" />
               </div>
             </TableHead>
+            <TableHead className="px-4 w-[110px]">
+              <div className="flex items-center gap-2.5">
+                <span className="text-sm font-medium text-muted-foreground">前回評価</span>
+              </div>
+            </TableHead>
             <TableHead className="px-4">
               <div className="flex items-center gap-2.5">
-                <span className="text-sm font-medium text-muted-foreground">雇用形態</span>
+                <span className="text-sm font-medium text-muted-foreground">社員番号</span>
                 <ArrowDownUp className="h-4 w-4 text-muted-foreground" />
               </div>
             </TableHead>
@@ -76,13 +84,19 @@ export function DataFetchingTable({
                 <ArrowDownUp className="h-4 w-4 text-muted-foreground" />
               </div>
             </TableHead>
+            <TableHead className="px-4">
+              <div className="flex items-center gap-2.5">
+                <span className="text-sm font-medium text-muted-foreground">雇用形態</span>
+                <ArrowDownUp className="h-4 w-4 text-muted-foreground" />
+              </div>
+            </TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
           {employees.length === 0 ? (
             <TableRow>
               <TableCell
-                colSpan={5}
+                colSpan={7}
                 className="text-center text-muted-foreground py-8"
               >
                 データがありません
@@ -109,13 +123,23 @@ export function DataFetchingTable({
                   </div>
                 </TableCell>
                 <TableCell className="px-4">
-                  <span className="text-sm">{employee.employmentType}</span>
+                  <Badge 
+                    className="bg-sky-100 text-sky-700 hover:bg-sky-100 border-0 rounded-full px-3 py-0.5 text-xs font-normal"
+                  >
+                    {employee.previousEvaluation}
+                  </Badge>
+                </TableCell>
+                <TableCell className="px-4">
+                  <span className="text-sm">{employee.employeeNumber}</span>
                 </TableCell>
                 <TableCell className="px-4">
                   <span className="text-sm">{employee.department}</span>
                 </TableCell>
                 <TableCell className="px-4">
                   <span className="text-sm">{employee.joinDate}</span>
+                </TableCell>
+                <TableCell className="px-4">
+                  <span className="text-sm">{employee.employmentType}</span>
                 </TableCell>
               </TableRow>
             ))

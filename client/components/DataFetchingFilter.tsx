@@ -7,6 +7,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { SlidersHorizontal } from "lucide-react";
 
 interface DataFetchingFilterProps {
   department: string;
@@ -27,22 +28,6 @@ export function DataFetchingFilter({
 }: DataFetchingFilterProps) {
   return (
     <div className="flex flex-col gap-4 md:flex-row md:items-end md:gap-6">
-      <div className="w-full md:w-[200px] space-y-2">
-        <Label htmlFor="department" className="text-sm font-medium">
-          部署
-        </Label>
-        <Select value={department} onValueChange={onDepartmentChange}>
-          <SelectTrigger id="department" className="h-10">
-            <SelectValue placeholder="部署を選択" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="エンタメ事業部">エンタメ事業部</SelectItem>
-            <SelectItem value="CTO室">CTO室</SelectItem>
-            <SelectItem value="社長室">社長室</SelectItem>
-          </SelectContent>
-        </Select>
-      </div>
-
       <div className="flex-1 space-y-2">
         <Label htmlFor="memberName" className="text-sm font-medium">
           メンバー名
@@ -54,6 +39,25 @@ export function DataFetchingFilter({
           onChange={(e) => onMemberNameChange(e.target.value)}
           className="h-10"
         />
+      </div>
+
+      <div className="space-y-2">
+        <Label htmlFor="department" className="text-sm font-medium">
+          部署
+        </Label>
+        <Select value={department} onValueChange={onDepartmentChange}>
+          <SelectTrigger id="department" className="h-10 rounded-lg">
+            <div className="flex items-center gap-1">
+              <SlidersHorizontal className="h-6 w-6" />
+              <SelectValue placeholder="部署を選択" />
+            </div>
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="エンタメ事業部">エンタメ事業部</SelectItem>
+            <SelectItem value="CTO室">CTO室</SelectItem>
+            <SelectItem value="社長室">社長室</SelectItem>
+          </SelectContent>
+        </Select>
       </div>
 
       <div className="w-full md:w-[200px] space-y-2">
